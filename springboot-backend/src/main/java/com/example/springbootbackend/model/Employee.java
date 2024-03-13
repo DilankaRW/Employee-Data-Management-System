@@ -1,4 +1,4 @@
-package model;
+package com.example.springbootbackend.model;
 import jakarta.persistence.*;
 import org.springframework.data.annotation.Id;
 
