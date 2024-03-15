@@ -35,6 +35,11 @@ export default function Home() {
                     <td>{employee.firstname}</td>
                     <td>{employee.lastname}</td>
                     <td>{employee.emailid}</td>
+                    <td>
+                        <button className='btn btn-primary max-2'>View</button>
+                        <button className='btn btn-outline-primary max-2'>Edit</button>
+                        <button className='btn btn-danger max-2'>Delete</button>
+                    </td>
                     </tr>
                 ))
             }
