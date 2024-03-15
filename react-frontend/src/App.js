@@ -11,6 +11,7 @@ function App() {
       <Navbar/>
       <Routes>
         <Route exact path='/' element={<Home/>}/>
+        <Route exact path='/addemployee' element={<AddEmployee/>}/>
       </Routes>
       </Router>
     </div>
