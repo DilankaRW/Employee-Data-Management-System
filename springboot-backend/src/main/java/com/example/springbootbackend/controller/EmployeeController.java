@@ -30,4 +30,15 @@ public class EmployeeController {
         return employeeRepository.findById(id)
                 .orElseThrow(()->new EmployeeNotFoundException(id));
     }
+
+    @PutMapping("/employee/{id}")
+    Employee updateEmployee(@RequestBody Employee newEmployee, @PathVariable Long id){
+        return employeeRepository.findById(id)
+                .map(employee -> {
+                    employee.setFirstname(newEmployee.getFirstname());
+                    employee.setLastname(newEmployee.getLastname());
+                    employee.setEmailid(newEmployee.getEmailid());
+                    return employeeRepository.save(employee);
+                }).orElseThrow(()-> new EmployeeNotFoundException(id));
+    }
 }
