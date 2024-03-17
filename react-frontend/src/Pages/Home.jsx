@@ -46,7 +46,7 @@ export default function Home() {
                     <td>{employee.lastname}</td>
                     <td>{employee.emailid}</td>
                     <td>
-                        <button className='btn btn-primary max-2'>View</button>
+                        <Link className='btn btn-primary max-2' to={`/viewemployee/${employee.id}`}>View</Link>
                         <Link className='btn btn-outline-primary max-2' to={`/editemployee/${employee.id}`}>Edit</Link>
                         <button className='btn btn-danger max-2' onClick={() => deleteEmployee(employee.id)}>Delete</button>
                     </td>
