@@ -12,7 +12,7 @@ export default function AddEmployee() {
     emailid:""
   })
 
-  const{firstname, lastname, email}=employee
+  const{firstname, lastname, emailid}=employee
 
   const onIputChange=(e)=>{
     setEmployee({...employee, [e.target.name]: e.target.value})
@@ -40,7 +40,7 @@ export default function AddEmployee() {
           </div>
           <div className='mb-3'>
             <label htmlFor="Email" className='form-label'>Email</label>
-            <input type='text' className='form-control' placeholder='Enter your Email' name='emailid' value={email} onChange={(e)=>onIputChange(e)}/>
+            <input type='text' className='form-control' placeholder='Enter your Email' name='emailid' value={emailid} onChange={(e)=>onIputChange(e)}/>
           </div>
           <button type='submit' className='btn btn-outline-primary'>Submit</button>
           <Link className='btn btn-outline-danger mx-2' to="/">Cancel</Link>
