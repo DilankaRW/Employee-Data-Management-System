@@ -6,6 +6,10 @@ export default function Home() {
 
     const [Employees, setEmployees] =  useState([]);
 
+    useEffect(() => {
+        loadEmployees();
+    },[])
+
     useEffect(() =>{
         loadEmployees();
     });
@@ -14,6 +18,11 @@ export default function Home() {
         const result = await axios.get("http://localhost:8080/employees");
         setEmployees(result.data);
     };
+
+    const deleteEmployee = async (id) =>{
+        await axios.delete(`http://localhost:8080/employee/${id}`)
+        loadEmployees()
+    }
 
   return (
     <div className='container'>
@@ -39,7 +48,7 @@ export default function Home() {
                     <td>
                         <button className='btn btn-primary max-2'>View</button>
                         <Link className='btn btn-outline-primary max-2' to={`/editemployee/${employee.id}`}>Edit</Link>
-                        <button className='btn btn-danger max-2'>Delete</button>
+                        <button className='btn btn-danger max-2' onClick={() => deleteEmployee(employee.id)}>Delete</button>
                     </td>
                     </tr>
                 ))
