@@ -41,4 +41,14 @@ public class EmployeeController {
                     return employeeRepository.save(employee);
                 }).orElseThrow(()-> new EmployeeNotFoundException(id));
     }
+
+    @DeleteMapping("/employee/{id}")
+    String deleteEmployee(@PathVariable Long id){
+        if(!employeeRepository.existsById(id)){
+            throw new EmployeeNotFoundException(id);
+        }
+        employeeRepository.deleteById(id);
+        return "Employee with id "+id+" has been deleted success.";
+    }
+
 }
